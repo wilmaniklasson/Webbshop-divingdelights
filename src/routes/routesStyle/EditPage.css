@@ -5,3 +5,16 @@
   justify-content: center;
   height: auto;
 }
+
+
+.log-out{
+  background: #FF8865;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 15px;
+}
