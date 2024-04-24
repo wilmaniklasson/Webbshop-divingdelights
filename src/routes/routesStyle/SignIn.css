@@ -1,0 +1,65 @@
+
+.loggin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+  
+    
+}
+/* Style for the input field */
+.input input[type="password"] {
+    width: 300px;
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+/* Style for displaying error messages */
+.password-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Container for the submit button */
+.submit-container {
+    margin: 20px;
+}
+
+/* Style for the submit button */
+.submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+    background-color: #45a049;
+}
+
+/* Disabled button style */
+.submit:disabled {
+    background-color: #ccc;
+    color: black;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .loggin-form {
+        padding: 20px;
+    }
+    
+
+  
+}
