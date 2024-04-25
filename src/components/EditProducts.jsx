@@ -9,22 +9,22 @@ const EditProducts = ({ whenEditDone, product }) => {
     const setProducts = useStore(state => state.setProducts)
     
     // Initiera state för input fälten med aktuell produktinformation
-    const [Name, setName] = useState(product.name || '')
-    const [Category, setCategory] = useState(product.category || '')
-    const [Color, setColor] = useState(product.color || '')
-    const [Price, setPrice] = useState(product.price || '')
-    const [Image, setImage] = useState(product.image || '')
-    const [Description, setDescription] = useState(product.description || '')
+    const [name, setName] = useState(product.name)
+    const [category, setCategory] = useState(product.category)
+    const [color, setColor] = useState(product.color)
+    const [price, setPrice] = useState(product.price)
+    const [image, setImage] = useState(product.image)
+    const [description, setDescription] = useState(product.description)
 
 const handleSave = async () => {
     setIsLoading(true);
     const updatedProduct = { // Skapa ett objekt med den nya datan
-        name: Name,
-        category: Category,
-        color: Color,
-        price: Price,
-        image: Image,
-        description: Description
+    	name,
+        category,
+        color,
+        price,
+        image,
+    	description
     }; 
     await editProduct(product.key, updatedProduct);
     const updatedList = await getProducts();
@@ -40,13 +40,13 @@ const handleSave = async () => {
             <section className="column">
                 <label> Namn </label>
                 <input type="text"
-                    value={Name}
+                    value={name}
                     onChange={e => setName(e.target.value)}
-					placeholder={product.Name}/>
+					/>
 
                 <label> Kategori </label>   
                 <select
-                    value={Category}
+                    value={category}
                     onChange={e => setCategory(e.target.value)}
                     >
                     <option value="">Ändra en kategori</option>
@@ -58,26 +58,26 @@ const handleSave = async () => {
 
                 <label> Färg </label>
                 <input type="text"
-                    value={Color}
+                    value={color}
                     onChange={e => setColor(e.target.value)}
-					placeholder={product.Color}/>
+					/>
 
                 <label> Pris </label>
                 <input type="number"
-                    value={Price}
+                    value={price}
                     onChange={e => setPrice(e.target.value)}
-					placeholder={product.Price}/>
+					/>
 
                 <label> Bild länk </label>
                 <input type="text"
-                    value={Image}
+                    value={image}
                     onChange={e => setImage(e.target.value)}
-					placeholder={product.Image}/>
+					/>
 
                 
                 <label> Beskrivning </label>
                 <textarea
-                    value={Description}
+                    value={description}
                     onChange={e => setDescription(e.target.value)}
 					placeholder={product.Description}
                     rows="4" cols="50">

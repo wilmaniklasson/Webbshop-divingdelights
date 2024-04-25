@@ -24,12 +24,12 @@ const ViewProduct = ({ product }) => {
 			) : (
 				<>
                 <div className="view-product-container"> 
-                <img className="product-image" src={product.Image} alt="Product Image" />
-                <div>{product.Name}</div>
-                <div>kategori: {product.Category}</div>
-                <div>Färg: {product.Color}</div>
-                <div>{product.Price} kr</div>
-                <div>beskriving: {product.Description}</div>
+                <img className="product-image" src={product.image} alt="Product Image" />
+                <div>{product.name}</div>
+                <div>kategori: {product.category}</div>
+                <div>Färg: {product.color}</div>
+                <div>{product.price} kr</div>
+                <div>beskriving: {product.description}</div>
             </div>
             <button className='edit-btn' onClick={()  => setIsEditing(true)}>Edit</button>
             <button disabled={isLoading} onClick={handleDelete} className="delete-btn"> Delete </button>
