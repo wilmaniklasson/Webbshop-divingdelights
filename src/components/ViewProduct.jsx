@@ -1,7 +1,7 @@
 import { deleteProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
 import { useState } from 'react'
-import "./ViewProduct.css"
+import "./componentsStyle/Products.css"
 import EditProducts from './EditProducts.jsx'
 
 const ViewProduct = ({ product }) => {

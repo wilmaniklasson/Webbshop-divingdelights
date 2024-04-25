@@ -2,7 +2,7 @@ import { deleteProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
 import { useState } from 'react'
 import ViewProduct from './ViewProduct.jsx'
-import "./ViewProduct.css"
+import "./componentsStyle/Products.css"
 
 const Products = () => {
     const { products, setProducts } = useStore(state => ({

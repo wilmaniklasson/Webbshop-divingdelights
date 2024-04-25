@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom"
-import "../Root.css";
+import "../index.css";
 
 
 const Root = () => {
