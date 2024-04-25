@@ -5,6 +5,7 @@ const useStore = create(set => ({
 
 	setProducts: newProducts => set(state => ({
         products: newProducts
+       
     })),
 
 	addproduct: product => set(state => ({

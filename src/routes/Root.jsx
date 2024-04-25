@@ -1,19 +1,28 @@
-import { Link, NavLink, Outlet } from "react-router-dom"
+import { useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useStore } from '../data/store';
+import { getProducts } from '../data/crud'; 
 import "../index.css";
 
-
 const Root = () => {
-    
-	return (
-	<div className="app">
+    const setProducts = useStore(state => state.setProducts);
 
-		<main>
-			<Outlet />
-		</main>
+    useEffect(() => {
+        const loadProducts = async () => {
+            const products = await getProducts(); // Hämta produkter från Firestore
+            setProducts(products); // Spara i Zustand store
+        };
 
-	</div>
-	);
+        loadProducts(); // Anropa när komponenten laddas
+    }, [setProducts]); // Dependency array för att säkerställa korrekt hantering av uppdateringar
+
+    return (
+        <div className="app">
+            <main>
+                <Outlet />
+            </main>
+        </div>
+    );
 }
 
-
-export default Root
+export default Root;

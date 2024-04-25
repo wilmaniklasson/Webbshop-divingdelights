@@ -8,9 +8,12 @@ import Dykfenor from '../assets/Dykfenor.webp';
 import Snorkelset from '../assets/Snorkelset.webp';
 import logga from '../assets/logga.svg';
 import shoppingCart from '../assets/shoppingCart.svg';
+import {useStore} from '../data/store';
 
 
 const LandingPage = () => {
+    const products = useStore(state => state.products);
+
     return (
         <div className="landing-page">
             <header className='landing-page-header'>
