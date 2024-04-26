@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {  editProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
+import "./componentsStyle/Products.css"
 
 
 const EditProducts = ({ whenEditDone, product }) => {
@@ -85,7 +86,7 @@ const handleSave = async () => {
 
             </section>
 
-            <button disabled={isLoading} onClick={handleSave} className="save-btn">Save</button>
+            <button disabled={isLoading} onClick={handleSave} className="save-btn">Spara</button>
             </form>
         </section>
         

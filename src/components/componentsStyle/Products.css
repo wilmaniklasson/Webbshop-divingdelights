@@ -10,8 +10,11 @@
 .view-product-container{
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    max-width: 50%;
+    max-width: 43%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+
 }
 
 .product-image{
@@ -33,14 +36,6 @@
     margin-top: 50px;
 }
 
-.get-product-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #f0c14b;
-    border: none;
-    cursor: pointer;
-}
 
 
 
@@ -55,6 +50,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     max-width: 500px;
     width: 100%;
+    border-radius: 10px;
 }
 
 .column {
@@ -110,7 +106,7 @@
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 15px 30px;
+    padding: 10px 15px;
     cursor: pointer;
     font-size: 18px;
     outline: none;
@@ -118,6 +114,7 @@
     margin-top: 1em;
     width: auto;
     align-self: center;
+    width: 30%;
 }
 
 .handle-submit-btn:hover {
@@ -128,4 +125,62 @@
     background-color: #ccc;
     color: black;
     cursor: not-allowed;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+    width: auto;
+    align-self: center;
+    width: 30%;
+    
+    
+}
+
+.edit-btn {
+    background-color: #eea231;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+    width: auto;
+    align-self: center;
+    width: 30%;
+    
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+    width: auto;
+    align-self: center;
+    width: 30%;
+   
 }

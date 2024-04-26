@@ -16,11 +16,6 @@ const Products = () => {
 
     return (
         <div>
-            <div className='get-product-constiner'>
-                <button onClick={handleGetProduct} className='get-product-btn'>
-                    Hämta produkter
-                </button>
-            </div>
             {products.map(product => (
                 <ViewProduct key={product.key} product={product} />
             ))}

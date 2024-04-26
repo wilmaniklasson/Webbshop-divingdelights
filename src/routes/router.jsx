@@ -3,7 +3,9 @@ import Root from './Root.jsx'
 import SignIn from './SignIn.jsx';
 import EditPage from './EditPage.jsx';
 import LandingPage from './LandingPage.jsx';
-import ProductPage from './ProductPage.jsx';
+import ShoppingCart from './ShoppingCart.jsx';
+
+
 
 const router = createHashRouter([
 	{
@@ -18,8 +20,8 @@ const router = createHashRouter([
                 element: <LandingPage />
             },
 			{
-                path: '/valprodukt',
-                element: <ProductPage />
+                path: '/Varukorg',
+                element: <ShoppingCart />
             },
 			{
                 path: '/LoggaIn',

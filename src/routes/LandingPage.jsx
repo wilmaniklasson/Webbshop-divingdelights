@@ -2,13 +2,11 @@ import React from 'react';
 import "./routesStyle/LandingPage.css";
 import { Link } from 'react-router-dom';
 import snorkelingImage from '../assets/snorkelingImage.webp';
-import Cyklop from '../assets/Cyklop.webp';
-import Snorkel from '../assets/Snorkel.webp';
-import Dykfenor from '../assets/Dykfenor.webp';
-import Snorkelset from '../assets/Snorkelset.webp';
 import logga from '../assets/logga.svg';
 import shoppingCart from '../assets/shoppingCart.svg';
 import {useStore} from '../data/store';
+import ProductCard from '../components/ProductCard.jsx';
+
 
 
 const LandingPage = () => {
@@ -19,48 +17,40 @@ const LandingPage = () => {
             <header className='landing-page-header'>
                 <div className='landing-page-header-div'>
                 <img className="logga" src={logga} alt="logga" />
+                <Link to="/Varukorg">
                 <img className="shoppingCart" src={shoppingCart} alt="shoppingCart" />
+                </Link>
                 </div>
                
             </header>
             <section className='banner'>
             <img src={snorkelingImage} alt="Snorkeling Scene" />
             </section>
+            <p className='category-text'>Kategorier</p>
             <section className='categories-section'>
-                <div className='categories'>
-                <img src={Cyklop} alt="" />
-                <p>Cyklop</p>
-                </div>
-                <div className='categories'>
-                <img src={Snorkel} alt="" />
-                <p>Snorkel</p>
-                </div>
-                <div className='categories'>
-                <img src={Dykfenor} alt="" />
-                <p>Dykfenor</p>
-                </div>
-                <div className='categories'>
-                <img src={Snorkelset} alt="" />
-                <p> Snorkelset</p>
-                </div>
+                
+                    <button className='category-btn'>Cyklop</button>
+                    <button className='category-btn'>Snorkel</button>
+                    <button className='category-btn'>Dykfenor</button>
+                    <button className='category-btn'>Snorkelset</button>
+            </section>
+            <section className='sort-btns'>
+                <select>
+                    <option value="default">Sortera</option>
+                    <option value="name-ascending">A-Ö</option>
+                    <option value="price-rising">Pris stigande</option>
+                    <option value="price-falling">Pris fallande</option>
+                </select>
             </section>
             <section className='product-section'>
-                <div className='product-div'>produkt</div>
-                <div className='product-div'>produkt</div>
-                <div className='product-div'>
-                    <div>bild</div>
-                    <h1>Produkt</h1>
-                    <p>Produktbeskrivning</p>
-                    <button className="add">Lägg i varukorg</button>
-                    <Link to="/valprodukt">
-                    <button className="Read-more">Läs mer</button>
-                    </Link>
-                </div>
+                <ProductCard />
             </section>
-            <footer>
-                <p>© 2021 Diving Delights</p>
+
+           
+            <footer className='footer-landing-page'>
+                <p className='admin'>Administratör:</p>
                 <Link to="/LoggaIn">
-                <button className="submit">Logga in</button>
+                <button className="sign-in-btn">Logga in</button>
                 </Link>
             </footer>
             

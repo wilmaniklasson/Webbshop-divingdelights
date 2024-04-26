@@ -24,15 +24,17 @@ const ViewProduct = ({ product }) => {
 			) : (
 				<>
                 <div className="view-product-container"> 
-                <img className="product-image" src={product.image} alt="Product Image" />
-                <div>{product.name}</div>
-                <div>kategori: {product.category}</div>
-                <div>Färg: {product.color}</div>
-                <div>{product.price} kr</div>
-                <div>beskriving: {product.description}</div>
-            </div>
-            <button className='edit-btn' onClick={()  => setIsEditing(true)}>Edit</button>
-            <button disabled={isLoading} onClick={handleDelete} className="delete-btn"> Delete </button>
+                    <img className="product-image" src={product.image} alt="Product Image" />
+                    <div>{product.name}</div>
+                    <div>kategori: {product.category}</div>
+                    <div>Färg: {product.color}</div>
+                    <div>{product.price} kr</div>
+                    <div>beskriving: {product.description}</div>
+                    <div className='btn-wrapper'>
+                        <button className='edit-btn' onClick={()  => setIsEditing(true)}>Ändra</button>
+                        <button disabled={isLoading} onClick={handleDelete} className="delete-btn"> Radera </button>
+                    </div>
+                </div>
                 </>
              )}
         </section>
