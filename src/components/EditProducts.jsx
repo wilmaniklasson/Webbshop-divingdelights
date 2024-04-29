@@ -1,15 +1,16 @@
+//TO DO: Validera formuläret och kontrollera om knappen ska vara inaktiverad
+
 import React, { useState } from 'react'
 import {  editProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
-import "./componentsStyle/Products.css"
-
+import "./Style/Products.css"
 
 const EditProducts = ({ whenEditDone, product }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const setProducts = useStore(state => state.setProducts)
     
-    // Initiera state för input fälten med aktuell produktinformation
+    // State för input fälten och des aktuell information
     const [name, setName] = useState(product.name)
     const [category, setCategory] = useState(product.category)
     const [color, setColor] = useState(product.color)
@@ -31,7 +32,6 @@ const handleSave = async () => {
     const updatedList = await getProducts();
     setProducts(updatedList);
     whenEditDone(); // Återgå till visningsläge
-    
 }
 
     return (
@@ -39,12 +39,15 @@ const handleSave = async () => {
         <section>
             <form className="form">
             <section className="column">
+
+                { /* input Namn*/ }
                 <label> Namn </label>
                 <input type="text"
                     value={name}
                     onChange={e => setName(e.target.value)}
 					/>
-
+                    
+                { /* input Kategori*/ }
                 <label> Kategori </label>   
                 <select
                     value={category}
@@ -57,25 +60,28 @@ const handleSave = async () => {
                     <option value="Snorkelset">Snorkelset</option>
                 </select>
 
+                { /* input Färg */ }
                 <label> Färg </label>
                 <input type="text"
                     value={color}
                     onChange={e => setColor(e.target.value)}
 					/>
 
+                { /* input Pris */ }
                 <label> Pris </label>
                 <input type="number"
                     value={price}
                     onChange={e => setPrice(e.target.value)}
 					/>
 
+                { /* input Bild länk */ }
                 <label> Bild länk </label>
                 <input type="text"
                     value={image}
                     onChange={e => setImage(e.target.value)}
 					/>
 
-                
+                { /* input Beskriving */ }
                 <label> Beskrivning </label>
                 <textarea
                     value={description}

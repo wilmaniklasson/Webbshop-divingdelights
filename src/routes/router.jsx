@@ -5,8 +5,6 @@ import EditPage from './EditPage.jsx';
 import LandingPage from './LandingPage.jsx';
 import ShoppingCart from './ShoppingCart.jsx';
 
-
-
 const router = createHashRouter([
 	{
 		
@@ -33,8 +31,6 @@ const router = createHashRouter([
 				element: <EditPage />
 			}
 
-			
-			
 		]
 	},
 	

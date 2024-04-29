@@ -21,12 +21,11 @@
   border-radius: 10px;
   padding: 10px;
 }
-.product-item-image
-{
-
+.product-item-image{
   display: flex;
   justify-content: center;
 }
+
 .product-image{
   width: 100%;
   height: auto;

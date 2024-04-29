@@ -1,19 +1,11 @@
-import { deleteProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
-import { useState } from 'react'
 import ViewProduct from './ViewProduct.jsx'
-import "./componentsStyle/Products.css"
+import "./Style/Products.css"
 
 const Products = () => {
-    const { products, setProducts } = useStore(state => ({
-        products: state.products,
-        setProducts: state.setProducts
-    }));
-
-    const handleGetProduct = async () => {
-        setProducts(await getProducts());
-    };
-
+    const products = useStore(state => state.products);
+    
+    
     return (
         <div>
             {products.map(product => (

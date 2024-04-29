@@ -1,0 +1,16 @@
+.header-loggin{
+    display: flex;
+    flex-direction: row;
+    background-color: #89b9d3;
+  width: 100%;
+  text-align: center;
+}
+.loggin-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+  
+    
+}

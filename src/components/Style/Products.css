@@ -17,13 +17,6 @@
 
 }
 
-.product-image{
-    width: 20%;
-    height: 20%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
 .view-product-container div{
     margin-top: 10px;
 }
@@ -35,9 +28,6 @@
     flex-direction: column;
     margin-top: 50px;
 }
-
-
-
 
 .form {
     display: flex;
@@ -94,7 +84,6 @@
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-
 .column textarea {
     height: 100px;
     padding: 10px;
@@ -141,8 +130,6 @@
     width: auto;
     align-self: center;
     width: 30%;
-    
-    
 }
 
 .edit-btn {
@@ -159,7 +146,6 @@
     width: auto;
     align-self: center;
     width: 30%;
-    
 }
 
 .btn-wrapper {
@@ -182,5 +168,4 @@
     width: auto;
     align-self: center;
     width: 30%;
-   
 }

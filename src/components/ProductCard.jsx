@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { useStore } from '../data/store';
-import './ProductCard.css';
+import './Style/ProductCard.css';
 
 // Tar emot produkter
 const ProductCardsContainer = () => {
     const products = useStore(state => state.products);
     
-
     return (
         <>
         {products.map(product => (
                 <ProductCard key={product.key} product={product} />
             ))}
-        </>
-            
-        
+        </>   
     );
 }
 
@@ -26,7 +23,7 @@ const ProductCard = ({ product }) => {
 
     function addToCart() {
         addOrderedItem(product);
-        
+        console.log(orderedItems);
     }
 
     // State för beskrivningen
@@ -56,7 +53,5 @@ const ProductCard = ({ product }) => {
         </div>
     );
 }
-
-
 
 export default ProductCardsContainer;

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./routesStyle/LandingPage.css";
+import "./Style/LandingPage.css";
 import { Link } from 'react-router-dom';
 import snorkelingImage from '../assets/snorkelingImage.webp';
 import logga from '../assets/logga.svg';

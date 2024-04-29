@@ -1,14 +1,19 @@
 import { deleteProduct, getProducts } from '../data/crud.js'
 import { useStore } from '../data/store.js'
 import { useState } from 'react'
-import "./componentsStyle/Products.css"
+import "./Style/Products.css"
 import EditProducts from './EditProducts.jsx'
 
+// Skicka in product som props
 const ViewProduct = ({ product }) => {
+    // State för att hantera laddningsstatus
     const [isLoading, setIsLoading] = useState(false);
+    // State för att hantera redigering av produkt
     const [isEditing, setIsEditing] = useState(false)
+    // Hämta setProducts funktionen från Zustand store
     const setProducts = useStore(state => state.setProducts);
 
+    // Hantera radering av produkt
     const handleDelete = async () => {
         setIsLoading(true);
         await deleteProduct(product.key);
@@ -17,8 +22,11 @@ const ViewProduct = ({ product }) => {
         setIsLoading(false);
     };
 
+
+
     return (
         <section className="view-product-section">
+            {/* Om isEditing är true vissa EditProducts komponenten */}
             {isEditing ? (
 				<EditProducts  product={product} whenEditDone={() => setIsEditing(false)} />
 			) : (

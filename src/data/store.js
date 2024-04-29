@@ -1,10 +1,20 @@
+// ! TODO ! 
+// Lägg till:
+// 1. Sortering A-ö.
+// 2. Sortering pris.
+// 3. Sortering kategori.
+// 4. Funktionalitet finns produken i varukorgen? öka antalet istället för att lägga till en ny produkt
+// och funktionalitet + / - för att öka och minska antal i varukorgen med hjälp av knappar.
+
+
 import { create } from 'zustand';
 
 const useStore = create(set => ({
-    // Initiala produkter
+
+    
+    // Webbshopens produkter
     products: [],
 
-    // Funktion för att sätta produkter
     setProducts: newProducts => set({
         products: newProducts
     }),
@@ -19,10 +29,12 @@ const useStore = create(set => ({
         products: state.products.filter(product => product.key !== productKey)
     })),
 
-    // Initiala beställda produkter
+
+
+    //Kundens varukorg
     orderedItems: [],
 
-    // Funktion för att lägga till en beställd produkt
+    // Funktion för att lägga till en produkt i varukorgen
     addOrderedItem: item => set(state => ({
         orderedItems: [
             ...state.orderedItems,
@@ -34,12 +46,12 @@ const useStore = create(set => ({
         ],
     })),
 
-    // Funktion för att ta bort en beställd produkt med ett specifikt ID
+    // Funktion för att ta bort en produkt från varukorgen med ett specifikt ID
     deleteOrderedItem: id => set(state => ({
         orderedItems: state.orderedItems.filter(item => item.id !== id),
     })),
 
-    // Funktion för att rensa listan av beställda produkter
+    // Funktion för att rensa varukorgen
     clearItems: () => set({ orderedItems: [] }),
 }));
 
