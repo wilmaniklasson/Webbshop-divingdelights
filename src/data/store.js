@@ -53,6 +53,32 @@ const useStore = create(set => ({
 
     // Funktion för att rensa varukorgen
     clearItems: () => set({ orderedItems: [] }),
+
+
+   // Sortering av produkter
+    sortProducts: (sortType) => set(state => {
+        let sortedProducts = [...state.products];
+        switch (sortType) {
+            case "name-ascending":
+                sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "price-rising":
+                sortedProducts.sort((a, b) => a.price - b.price);
+                break;
+            case "price-falling":
+                sortedProducts.sort((a, b) => b.price - a.price);
+                break;
+            
+            default:
+                break;
+                
+        }
+        return { products: sortedProducts };
+    }),
+
+   
+
 }));
+
 
 export { useStore };

@@ -10,8 +10,11 @@ import ProductCard from '../components/ProductCard.jsx';
 
 
 const LandingPage = () => {
-    const products = useStore(state => state.products);
-
+    const sortProducts = useStore(state => state.sortProducts);
+    
+    const handleSortChange = (event) => {
+        sortProducts(event.target.value);
+    };
     return (
         <div className="landing-page">
             <header className='landing-page-header'>
@@ -35,12 +38,15 @@ const LandingPage = () => {
                     <button className='category-btn'>Snorkelset</button>
             </section>
             <section className='sort-btns'>
-                <select>
+                
+            <section className='sort-btns'>
+                <select onChange={handleSortChange}>
                     <option value="default">Sortera</option>
                     <option value="name-ascending">A-Ö</option>
                     <option value="price-rising">Pris stigande</option>
                     <option value="price-falling">Pris fallande</option>
                 </select>
+            </section>
             </section>
             <section className='product-section'>
                 <ProductCard />

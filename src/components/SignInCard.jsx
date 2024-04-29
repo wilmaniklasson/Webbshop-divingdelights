@@ -13,7 +13,7 @@ const SignInCard = () => {
     // Kontrollera att användarnamn och lösenord är korrekta
     function checkCredentials() {
         if (username.length === 0 || password.length === 0) {
-            setErrorMessage('Användarnamn och lösenordsfältet kan inte vara tomma.');
+            setErrorMessage('Vänligen fyll i Användarnamn och lösenord.');
         } else if (username !== 'user' || password !== 'password') {
             setErrorMessage('Fel användarnamn eller lösenord.');
         } else {
@@ -34,6 +34,7 @@ const SignInCard = () => {
 
     return (
         <>
+        <form>
         <div className="loggin-form">
         <h1>Admin portal</h1>
 
@@ -43,6 +44,7 @@ const SignInCard = () => {
                     type="text"
                     placeholder="Användarnamn"
                     aria-label="Användarnamn"
+                    autoComplete="current-username" 
                     onChange={(event) => setUsername(event.target.value)} />
             </div>
 
@@ -52,17 +54,21 @@ const SignInCard = () => {
                     type="password"
                     placeholder="Lösenord"
                     aria-label="Lösenord"
+                    autoComplete="current-password" 
                     onChange={(event) => setPassword(event.target.value)} />
-                <p className="password-error">{errorMessage}</p>
             </div>
+            <p className="password-error">{errorMessage} </p>
                 
             { /* knapp Logga in */ }
             <div className="submit-container">
                 <Link to={isSubmitDisabled ? "#" : "/Edit"}>
-                    <button className="submit" onClick={validateForm} disabled={isSubmitDisabled}>Logga in</button>
+                    <button className="submit" onClick={validateForm} >Logga in</button>
                 </Link>
             </div>
         </div>
+
+        </form>
+        
         </>
     );
 }

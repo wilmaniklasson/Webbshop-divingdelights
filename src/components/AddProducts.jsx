@@ -1,10 +1,11 @@
-//TO DO: Validera formuläret och kontrollera om knappen ska vara inaktiverad
-
 import { useState } from 'react';
 import { useStore } from '../data/store.js';
 import { addProduct, getProducts } from '../data/crud.js';
+import { validateField } from '../data/validation.js';
 
 const AddProducts = () => {
+    // State för att hantera felmeddelanden
+    const [errors, setErrors] = useState({}); 
     // State för att hantera laddningsstatus
     const [isLoading, setIsLoading] = useState(false);
 
@@ -40,6 +41,31 @@ const AddProducts = () => {
         }
     };
 
+
+    // Validera formulärfält
+  
+    const handleBlur = (field) => (e) => {
+        const { value } = e.target;
+        const error = validateField(field, value);
+        setErrors(prevErrors => ({ ...prevErrors, [field]: error }));
+      };
+      
+      
+
+      const isFormValid = () => {
+        return (
+          name.trim() && 
+          category && 
+          color.trim() && 
+          price > 0 && 
+          image.trim() && 
+          description.trim() && 
+          Object.values(errors).every(err => !err)
+        );
+      };
+      
+
+
     return (
         <section>
             <form className="form">
@@ -50,55 +76,73 @@ const AddProducts = () => {
                     <input type="text"
                         value={name}
                         onChange={e => setName(e.target.value)}
+                        onBlur={handleBlur('name')}
                         placeholder="Ange produktens namn"/>
+                    {errors.name && <div style={{ color: 'red' }}>{errors.name}</div>}
 
 					{ /* input Kategori */ }
                     <label> Kategori </label>
                     <select
-                        value={category}
-                        onChange={e => setCategory(e.target.value)}>
-                        <option value="">Välj en kategori</option>
-                        <option value="Cyklop">Cyklop</option>
-                        <option value="Snorkel">Snorkel</option>
-                        <option value="Dykfenor">Dykfenor</option>
-                        <option value="Snorkelset">Snorkelset</option>
+                    value={category}
+                    onChange={e => setCategory(e.target.value)}
+                    onBlur={handleBlur('category')}>
+                    <option value="">Välj en kategori</option>
+                    <option value="Cyklop">Cyklop</option>
+                    <option value="Snorkel">Snorkel</option>
+                    <option value="Dykfenor">Dykfenor</option>
+                    <option value="Snorkelset">Snorkelset</option>
                     </select>
+                    {errors.category && <div style={{ color: 'red' }}>{errors.category}</div>}
+
 
 					{ /* input Färg */ }
                     <label> Färg </label>
                     <input type="text"
                         value={color}
                         onChange={e => setColor(e.target.value)}
-                        placeholder="Ange färg"/>
+                        onBlur={handleBlur('color')}   placeholder="Ange färg"/>
+                        {errors.color && <div style={{ color: 'red' }}>{errors.color}</div>}
+                      
 
 					{ /* input Pris */ }
                     <label> Pris </label>
                     <input type="number"
                         value={price}
                         onChange={e => setPrice(e.target.value)}
-                        placeholder="Ange pris i SEK"/>
+                        onBlur={handleBlur('price')}
+                        placeholder="Ange pris i SEK"
+                        />
+                        {errors.price && <div style={{ color: 'red' }}>{errors.price}</div>}
+      
 
 					{ /* input Bild länk */ }
                     <label> Bild länk </label>
                     <input type="text"
                         value={image}
                         onChange={e => setImage(e.target.value)}
-                        placeholder="http://exempel.se/bild.jpg"/>
+                        onBlur={handleBlur('image')} placeholder="http://exempel.se/bild.jpg"/>
+                        {errors.image && <div style={{ color: 'red' }}>{errors.image}</div>}
+                        
 
 					{ /* input Beskrivning */ }
                     <label> Beskrivning </label>
                     <textarea
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
-                        placeholder="Beskriv produkten här" 
-                        rows="4" cols="50">
+                    value={description}
+                    onChange={e => setDescription(e.target.value)}
+                    onBlur={handleBlur('description')}
+                    placeholder="Beskriv produkten här"
+                    rows="4" cols="50">
                     </textarea>
+                    {errors.description && <div style={{ color: 'red' }}>{errors.description}</div>}
+
                 </section>
 
-                <button 
-                    disabled={isLoading}
-                    onClick={handleSubmit} type="submit" 
-                    className='handle-submit-btn'>Registrera</button>
+                <button
+                    disabled={!isFormValid() || isLoading}
+                    onClick={handleSubmit} type="submit"
+                    className='handle-submit-btn'>Registrera
+                </button>
+
             </form>
         </section>
     );
