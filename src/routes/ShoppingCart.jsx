@@ -24,8 +24,8 @@ const ShoppingCart = () => {
             
             <h1>Varukorg</h1>
             <section className='shopping-cart-items'>
-                {orderedItems.map((item, index) => (
-                    <CartItem key={index} item={item} onRemove={deleteOrderedItem} />
+                {orderedItems.map((item, id) => (
+                    <CartItem key={id} item={item} onRemove={deleteOrderedItem} />
                 ))}
             </section>
 
