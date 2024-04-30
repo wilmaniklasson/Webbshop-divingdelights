@@ -1,9 +1,7 @@
 // ! TODO ! 
 // Lägg till:
-// 1. Sortering A-ö.
-// 2. Sortering pris.
-// 3. Sortering kategori.
-// 4. Funktionalitet finns produken i varukorgen? öka antalet istället för att lägga till en ny produkt
+// Sortering kategori.
+// Funktionalitet finns produken i varukorgen? öka antalet istället för att lägga till en ny produkt
 // och funktionalitet + / - för att öka och minska antal i varukorgen med hjälp av knappar.
 
 
