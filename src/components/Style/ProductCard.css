@@ -21,10 +21,7 @@
   border-radius: 10px;
   padding: 10px;
 }
-.product-item-image{
-  display: flex;
-  justify-content: center;
-}
+
 
 .product-image{
   width: 100%;
@@ -54,9 +51,15 @@
 
 .product-description{
   z-index: 1;
-  background: whitesmoke;
+  background: rgb(231, 231, 231);
   width: 300px;
+  border-radius: 5px;
+  
  
+}
+.product-description p{
+  font-size: 0.9rem;
+  padding: 10px;
 }
 
 .show-more-btn {

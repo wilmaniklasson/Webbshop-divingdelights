@@ -4,11 +4,12 @@
     margin-bottom: 18px;
 }
 .shopping-cart {
+    
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    width: 80%;
+    max-width: 500px;
     margin: auto;
 }
 .shopping-cart-items {
@@ -16,11 +17,6 @@
     flex-direction: column;
     gap: 20px;
 }
-
-
-
-
-
 
 .checkout-section {
     background-color: #e3e3e3;
@@ -65,6 +61,9 @@
     .shopping-cart {
         width: 90%; 
     }
+    .cart-image{
+        align-self: center;
+     }
 
 }
 
