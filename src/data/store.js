@@ -1,8 +1,4 @@
-// ! TODO ! 
-// Lägg till:
-// Sortering kategori.
-// Funktionalitet finns produken i varukorgen? öka antalet istället för att lägga till en ny produkt
-// och funktionalitet + / - för att öka och minska antal i varukorgen med hjälp av knappar.
+
 
 
 import { create } from 'zustand';
@@ -32,24 +28,65 @@ const useStore = create(set => ({
     //Kundens varukorg
     orderedItems: [],
 
-    // Funktion för att lägga till en produkt i varukorgen
-    addOrderedItem: item => set(state => ({
-        orderedItems: [
-            ...state.orderedItems,
-            {
-                ...item,
-                // Genererar ett unikt ID baserat på nuvarande tidsstämpel
-                id: Date.now(),
-            },
-        ],
-    })),
+            // Lägg till en produkt i varukorgen eller öka kvantiteten
+        addOrderedItem: item => set(state => {
+            const existingItemIndex = state.orderedItems.findIndex(i => i.name === item.name);
+            if (existingItemIndex !== -1) {
+                // Produkt finns redan, öka kvantiteten
+                const newItems = state.orderedItems.slice(); // Kopierar befintlig array
+                newItems[existingItemIndex] = {
+                    ...newItems[existingItemIndex],
+                    quantity: (newItems[existingItemIndex].quantity || 1) + 1 // Öka kvantiteten
+                };
+                return { orderedItems: newItems };
+            } else {
+                // Produkt finns inte, lägg till med kvantitet 1
+                return {
+                    orderedItems: [
+                        ...state.orderedItems,
+                        {
+                            ...item,
+                            quantity: 1,
+                            id: Date.now(),
+                        }
+                    ],
+                };
+            }
+        }),
 
-    // Funktion för att ta bort en produkt från varukorgen med ett specifikt ID
+        // Öka kvantiteten av en produkt i varukorgen
+        onIncrease: id => set(state => {
+            const newItems = state.orderedItems.map(item => {
+                if (item.id === id) {
+                    return { ...item, quantity: item.quantity + 1 };
+                }
+                return item;
+            });
+            return { orderedItems: newItems };
+        }),
+
+        // Minska kvantiteten av en produkt i varukorgen
+        onDecrease: id => set(state => {
+            const newItems = state.orderedItems.map(item => {
+                if (item.id === id) {
+                    // Säkerställ att kvantiteten inte går under 1
+                    const newQuantity = item.quantity > 1 ? item.quantity - 1 : 1;
+                    return { ...item, quantity: newQuantity };
+                }
+                return item;
+            });
+            return { orderedItems: newItems };
+        }),
+
+
+
+
+    // Ta bort en produkt från varukorgen med ett specifikt ID
     deleteOrderedItem: id => set(state => ({
         orderedItems: state.orderedItems.filter(item => item.id !== id),
     })),
 
-    // Funktion för att rensa varukorgen
+    // Rensa varukorgen
     clearItems: () => set({ orderedItems: [] }),
 
 

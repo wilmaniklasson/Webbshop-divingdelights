@@ -1,9 +1,7 @@
+import React from 'react';
 import './Style/CartItem.css';
-import React, { useState } from 'react';
 
-
-// Tar emot 'item' och 'onRemove' som props från ShoppingCart.
-const CartItem = ({ item, onRemove }) => {
+const CartItem = ({ item, onRemove, onDecrease, onIncrease }) => {
     return (
         <div className="cart-item">
             <img className="cart-image" src={item.image} alt={item.name} />
@@ -13,9 +11,9 @@ const CartItem = ({ item, onRemove }) => {
                     <p className="price">{item.price} kr</p>
                 </div>
                 <div className='cart-item-quantity'>
-                    <button className='cart-item-btn'>-</button>
-                    <p>1</p>
-                    <button className='cart-item-btn'>+</button>
+                    <button className='cart-item-btn' onClick={() => onDecrease(item.id)}>-</button>
+                    <p>{item.quantity}</p>
+                    <button className='cart-item-btn' onClick={() => onIncrease(item.id)}>+</button>
                     <button className='remove-cart-item' onClick={() => onRemove(item.id)}>Ta bort</button>
                 </div>
             </div>
@@ -24,4 +22,3 @@ const CartItem = ({ item, onRemove }) => {
 };
 
 export default CartItem;
-
