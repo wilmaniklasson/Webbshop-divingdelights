@@ -1,11 +1,7 @@
-
-
-
 import { create } from 'zustand';
 
 const useStore = create(set => ({
 
-    
     // Webbshopens produkter
     products: [],
 
@@ -111,7 +107,19 @@ const useStore = create(set => ({
         return { products: sortedProducts };
     }),
 
-   
+    // Filtrera produkter baserat på kategori
+        selectCategory: (category) => set(state => {
+            const sortedProducts = [...state.products].sort((a, b) => {
+                // Sortera så att produkter i den valda kategorin kommer först
+                if (a.category === category && b.category !== category) return -1;
+                if (a.category !== category && b.category === category) return 1;
+                // Annars behåll befintlig ordning
+                return 0;
+            });
+        
+            return { products: sortedProducts };
+        }),
+        
 
 }));
 

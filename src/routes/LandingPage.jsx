@@ -15,6 +15,12 @@ const LandingPage = () => {
     const handleSortChange = (event) => {
         sortProducts(event.target.value);
     };
+
+    const setCategory = useStore(store => store.selectCategory);
+
+    const handleCategoryClick = (category) => {
+        setCategory(category); // Anropa selectCategory med den valda kategorin
+    };
     return (
         <div className="landing-page">
             <header className='landing-page-header'>
@@ -31,12 +37,11 @@ const LandingPage = () => {
             </section>
             <p className='category-text'>Kategorier</p>
             <section className='categories-section'>
-                
-                    <button className='category-btn'>Cyklop</button>
-                    <button className='category-btn'>Snorkel</button>
-                    <button className='category-btn'>Dykfenor</button>
-                    <button className='category-btn'>Snorkelset</button>
-            </section>
+            <button className='category-btn' onClick={() => handleCategoryClick('Cyklop')}>Cyklop</button>
+            <button className='category-btn' onClick={() => handleCategoryClick('Snorkel')}>Snorkel</button>
+            <button className='category-btn' onClick={() => handleCategoryClick('Dykfenor')}>Dykfenor</button>
+            <button className='category-btn' onClick={() => handleCategoryClick('Snorkelset')}>Snorkelset</button>
+        </section>
             <section className='sort-btns'>
                 
             <section className='sort-btns'>
