@@ -37,11 +37,21 @@
   right: 10px;  
   width: 50px;  
   height: auto; 
-  z-index: 1000;
+  z-index: 10;
 }
 
 .shoppingCart:hover {
   transform: scale(1.1);
+}
+
+.shoppingCart-text {
+  font-size: 1.2rem;
+  margin: 0;
+  margin-top: 5px;
+  position: fixed;
+  top: 5px;   
+  right: 10px;  
+  z-index: 20;
 }
 .banner {
   display: flex;
@@ -173,10 +183,16 @@
     margin: 1em;
   }
   .shoppingCart {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     margin: 1em;
   }
+
+
+.shoppingCart-text {
+  font-size: 1rem;
+  
+}
   
 }
 

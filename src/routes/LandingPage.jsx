@@ -10,6 +10,7 @@ import ProductCard from '../components/ProductCard.jsx';
 
 
 const LandingPage = () => {
+    const orderedItemsCount = useStore(state => state.getOrderedItemsCount());
     const sortProducts = useStore(state => state.sortProducts);
     
     const handleSortChange = (event) => {
@@ -26,6 +27,8 @@ const LandingPage = () => {
             <header className='landing-page-header'>
                 <div className='landing-page-header-div'>
                 <img className="logga" src={logga} alt="logga" />
+                { /* Om orderedItemsCount är större en 0 vissa <p>  */}
+                {orderedItemsCount > 0 && <p className="shoppingCart-text">{orderedItemsCount}</p>}
                 <Link to="/Varukorg">
                 <img className="shoppingCart" src={shoppingCart} alt="shoppingCart" />
                 </Link>

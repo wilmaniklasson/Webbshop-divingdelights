@@ -23,6 +23,11 @@ const useStore = create(set => ({
 
     //Kundens varukorg
     orderedItems: [],
+   
+    
+
+  
+
 
             // Lägg till en produkt i varukorgen eller öka kvantiteten
         addOrderedItem: item => set(state => {
@@ -73,6 +78,9 @@ const useStore = create(set => ({
             });
             return { orderedItems: newItems };
         }),
+
+        // Beräkna hur många produkter som finns i varukorgen
+        getOrderedItemsCount: () => useStore.getState().orderedItems.reduce((acc, item) => acc + item.quantity, 0),
 
 
 
