@@ -32,7 +32,7 @@ const ViewProduct = ({ product }) => {
 			) : (
 				<>
                 <div className="view-product-container"> 
-                    <img className="product-image" src={product.image} alt="Product Image" />
+                    <img className="view-product-image" src={product.image} alt="Product Image" />
                     <div>{product.name}</div>
                     <div>kategori: {product.category}</div>
                     <div>Färg: {product.color}</div>

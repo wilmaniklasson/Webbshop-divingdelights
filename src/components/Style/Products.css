@@ -55,7 +55,7 @@
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 1em;
+    margin-bottom:0;
     padding: 0 10px;
     font-size: 16px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
@@ -67,7 +67,7 @@
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     padding: 0 10px;
     font-size: 16px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
@@ -78,10 +78,15 @@
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     padding: 0 10px;
     font-size: 16px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+label{
+   margin-top: 1em;
 }
 
 .column textarea {
@@ -168,4 +173,11 @@
     width: auto;
     align-self: center;
     width: 30%;
+}
+
+.view-product-image {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
